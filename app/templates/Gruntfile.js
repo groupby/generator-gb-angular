@@ -40,7 +40,8 @@ module.exports = function (grunt) {
     connect: {
       main: {
         options: {
-          port: 9001
+          hostname: "0.0.0.0",
+          port: 8080
         }
       }
     },
@@ -135,7 +136,7 @@ module.exports = function (grunt) {
         dest: 'temp/app.full.js'
       }
     },
-    ngmin: {
+    ngAnnotate: {
       main: {
         src:'temp/app.full.js',
         dest: 'temp/app.full.js'
@@ -186,7 +187,7 @@ module.exports = function (grunt) {
         singleRun: true
       },
       all_tests: {
-        browsers: ['PhantomJS','Chrome','Firefox']
+        browsers: ['PhantomJS']
       },
       during_watch: {
         browsers: ['PhantomJS']
@@ -194,7 +195,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('build',['jshint','clean:before','less','dom_munger','ngtemplates','cssmin','concat','ngmin','uglify','copy','htmlmin','imagemin','clean:after']);
+  grunt.registerTask('build',['jshint','clean:before','less','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','htmlmin','imagemin','clean:after']);
   grunt.registerTask('serve', ['dom_munger:read','jshint','connect', 'watch']);
   grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
 

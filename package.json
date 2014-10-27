@@ -1,22 +1,22 @@
 {
-  "name": "generator-cg-angular",
-  "version": "3.1.0",
+  "name": "generator-gb-angular",
+  "version": "0.0.1",
   "description": "Yeoman Generator for Enterprise Angular projects.",
   "keywords": [
     "yeoman-generator",
     "angular"
   ],
-  "homepage": "https://github.com/cgross/generator-cg-angular",
-  "bugs": "https://github.com/cgross/generator-cg-angular/issues",
+  "homepage": "https://github.com/groupby/generator-gb-angular",
+  "bugs": "https://github.com/groupby/generator-gb-angular/issues",
   "author": {
-    "name": "Chris Gross",
-    "email": "schtoo@schtoo.com",
-    "url": "https://github.com/cgross"
+    "name": "Eric Hacke",
+    "email": "eric.hacke@groupbyinc.com",
+    "url": "https://github.com/groupby"
   },
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/cgross/generator-cg-angular.git"
+    "url": "git://github.com/groupby/generator-gb-angular.git"
   },
   "scripts": {
     "test": "mocha"
@@ -38,5 +38,6 @@
     {
       "type": "MIT"
     }
+
   ]
 }
