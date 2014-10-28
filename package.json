@@ -9,8 +9,8 @@
   "homepage": "https://github.com/groupby/generator-gb-angular",
   "bugs": "https://github.com/groupby/generator-gb-angular/issues",
   "author": {
-    "name": "Eric Hacke",
-    "email": "eric.hacke@groupbyinc.com",
+    "name": "GroupBy",
+    "email": "op@groupbyinc.com",
     "url": "https://github.com/groupby"
   },
   "main": "app/index.js",
