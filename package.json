@@ -1,6 +1,6 @@
 {
   "name": "generator-gb-angular",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Yeoman Generator for Enterprise Angular projects.",
   "keywords": [
     "yeoman-generator",
@@ -38,6 +38,5 @@
     {
       "type": "MIT"
     }
-
   ]
 }
