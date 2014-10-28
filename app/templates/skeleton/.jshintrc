@@ -6,11 +6,13 @@
     "newcap": true,
     "noarg": true,
     "sub": true,
+    "strict": true,
+    "latedef": true,
+    "forin": true,
+    "bitwise": true,
     "undef": true,
-    "boss": true,
     "eqnull": true,
     "browser": true,
-    "smarttabs": true,
     "globals": {
         "jQuery": true,
         "angular": true,
@@ -19,6 +21,7 @@
         "_": true,
         "moment": true,
         "describe": true,
+        "afterEach": true,
         "beforeEach": true,
         "module": true,
         "inject": true,
@@ -26,6 +29,7 @@
         "expect": true,
         "xdescribe": true,
         "xit": true,
+        "runs" : true,
         "spyOn": true
     }
 }
