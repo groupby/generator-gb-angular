@@ -2,6 +2,8 @@
 
 >Yeoman Generator for Enterprise Angular Projects
 
+This generator was forked from [generator-cg-angular](https://github.com/cgross/generator-cg-angular) `v3.1.2`, with branch `v3.2` merged into `master` on Oct 28, 2014.
+
 This generator follows the [Angular Best Practice Guidelines for Project Structure](http://blog.angularjs.org/2014/02/an-angularjs-style-guide-and-best.html).
 
 Features
@@ -14,7 +16,7 @@ Features
    * `grunt serve` task allows you to run a simple development server with watch/livereload enabled.  Additionally, JSHint and the appropriate unit tests are run for the changed files.
 * Integrates Bower for package management
 * Includes Yeoman subgenerators for directives, services, partials, filters, and modules.
-* Integrates LESS and includes Bootstrap via the source LESS files allowing you to reuse Bootstrap vars/mixins/etc.
+* Integrates LESS or Sass, and includes Bootstrap via the source LESS/SCSS files allowing you to reuse Bootstrap vars/mixins/etc.
 * Easily Testable - Each sub-generator creates a skeleton unit test.  Unit tests can be run via `grunt test` and they run automatically during the grunt watch that is active during `grunt serve`.
 
 Directory Layout
@@ -132,7 +134,7 @@ Build Process
 
 The project will include a ready-made Grunt build that will:
 
-* Build all the LESS files into one minified CSS file.
+* Build all the LESS/SCSS files into one minified CSS file.
 * Uses [grunt-angular-templates](https://github.com/ericclemmons/grunt-angular-templates) to turn all your partials into Javascript.
 * Uses [grunt-ngAnnotate](https://github.com/olov/ng-annotate) to preprocess all Angular injectable methods and make them minification safe.  Thus you don't have to use the array syntax.
 * Concatenates and minifies all Javascript into one file.
