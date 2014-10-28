@@ -19,6 +19,11 @@ util.inherits(ModalGenerator, yeoman.generators.NamedBase);
 ModalGenerator.prototype.askFor = function askFor() {
     var cb = this.async();
 
+    if(_.size(this.config.getAll()) === 0) {
+        console.error("ERROR: config is undefined, check .yo-rc.json");
+        return;
+    }
+
     cgUtils.askForModuleAndDir('modal',this,true,cb);
 };
 

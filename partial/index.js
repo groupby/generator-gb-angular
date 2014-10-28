@@ -22,6 +22,11 @@ util.inherits(PartialGenerator, yeoman.generators.NamedBase);
 PartialGenerator.prototype.askFor = function askFor() {
     var cb = this.async();
 
+    if(_.size(this.config.getAll()) === 0) {
+        console.error("ERROR: config is undefined, check .yo-rc.json");
+        return;
+    }
+
     var prompts = [
         {
             name: 'route',

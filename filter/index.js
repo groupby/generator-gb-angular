@@ -11,8 +11,8 @@ _.str = require('underscore.string');
 _.mixin(_.str.exports());
 
 var FilterGenerator = module.exports = function FilterGenerator(args, options, config) {
-
-	yeoman.generators.NamedBase.apply(this, arguments);
+    
+    yeoman.generators.NamedBase.apply(this, arguments);
 
 };
 
@@ -20,6 +20,11 @@ util.inherits(FilterGenerator, yeoman.generators.NamedBase);
 
 FilterGenerator.prototype.askFor = function askFor() {
     var cb = this.async();
+
+    if(_.size(this.config.getAll()) === 0) {
+        console.error("ERROR: config is undefined, check .yo-rc.json");
+        return;
+    }
 
     cgUtils.askForModuleAndDir('filter',this,false,cb);
 };

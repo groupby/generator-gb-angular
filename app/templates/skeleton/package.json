@@ -51,6 +51,10 @@
     "streamqueue": "0.1.1",
     "underscore": "~1.7",
     <% } %>
+    "imagemin-gifsicle": "^2.0.0",
+    "imagemin-jpegtran": "^2.0.0",
+    "imagemin-optipng": "^2.0.1",
+    "imagemin-svgo": "^2.0.0",
     "karma": "~0.12.24",
     "karma-chrome-launcher": "~0.1.5",
     "karma-firefox-launcher": "~0.1.3",

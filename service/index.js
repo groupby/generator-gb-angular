@@ -12,7 +12,7 @@ _.mixin(_.str.exports());
 
 var ServiceGenerator = module.exports = function ServiceGenerator(args, options, config) {
 
-	yeoman.generators.NamedBase.apply(this, arguments);
+    yeoman.generators.NamedBase.apply(this, arguments);
 
 };
 
@@ -20,6 +20,11 @@ util.inherits(ServiceGenerator, yeoman.generators.NamedBase);
 
 ServiceGenerator.prototype.askFor = function askFor() {
     var cb = this.async();
+
+    if(_.size(this.config.getAll()) === 0) {
+        console.error("ERROR: config is undefined, check .yo-rc.json");
+        return;
+    }
 
     cgUtils.askForModuleAndDir('service',this,false,cb);
 };

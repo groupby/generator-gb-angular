@@ -19,19 +19,19 @@ var endsWith = function(source,suffix){
 };
 
 exports.addToFile = function(filename,lineToAdd,beforeMarker){
-	try {
-		var fullPath = path.resolve(process.cwd(),filename);
-		var fileSrc = fs.readFileSync(fullPath,'utf8');
+    try {
+        var fullPath = path.resolve(process.cwd(),filename);
+        var fileSrc = fs.readFileSync(fullPath,'utf8');
 
-		var indexOf = fileSrc.indexOf(beforeMarker);
+        var indexOf = fileSrc.indexOf(beforeMarker);
         var lineStart = fileSrc.substring(0,indexOf).lastIndexOf('\n') + 1;
         var indent = fileSrc.substring(lineStart,indexOf);
-		fileSrc = fileSrc.substring(0,indexOf) + lineToAdd + "\n" + indent + fileSrc.substring(indexOf);
+        fileSrc = fileSrc.substring(0,indexOf) + lineToAdd + "\n" + indent + fileSrc.substring(indexOf);
 
-		fs.writeFileSync(fullPath,fileSrc);
-	} catch(e) {
-		throw e;
-	}
+        fs.writeFileSync(fullPath,fileSrc);
+    } catch(e) {
+        throw e;
+    }
 };
 
 exports.processTemplates = function(name,dir,type,that,defaultDir,configName,module){
@@ -54,7 +54,6 @@ exports.processTemplates = function(name,dir,type,that,defaultDir,configName,mod
     }
     _.chain(fs.readdirSync(templateDirectory))
         .filter(function(template){
-
             if (template[0] === '.'){
                 return false;
             }
@@ -91,6 +90,7 @@ exports.inject = function(filename,that,module) {
     if (ext[0] === '.') {
         ext = ext.substring(1);
     }
+
     var config = that.config.get('inject')[ext];
     if (config) {
         var configFile = _.template(config.file)({module:path.basename(module.file,'.js')});

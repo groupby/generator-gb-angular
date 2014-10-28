@@ -25,6 +25,11 @@ ModuleGenerator.prototype.askFor = function askFor() {
     var name = this.name;
     var defaultDir = path.join(this.name,'/');
 
+    if(_.size(this.config.getAll()) === 0) {
+        console.error("ERROR: config is undefined, check .yo-rc.json");
+        return;
+    }
+    
     var prompts = [
         {
             name:'dir',
