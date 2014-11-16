@@ -11,7 +11,7 @@ describe('<%= ctrlname %>', function() {
 
 	it('should ...', inject(function() {
 
-		expect(1).toEqual(1);
+		expect("this modal").toBe("fully tested");
 
 	}));
 

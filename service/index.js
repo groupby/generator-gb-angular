@@ -26,7 +26,7 @@ ServiceGenerator.prototype.askFor = function askFor() {
         return;
     }
 
-    cgUtils.askForModuleAndDir('service',this,false,cb);
+    cgUtils.askForModuleAndDir('service',this,false,null,cb);
 };
 
 ServiceGenerator.prototype.files = function files() {

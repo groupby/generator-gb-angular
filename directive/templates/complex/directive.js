@@ -1,3 +1,5 @@
+(function () { 'use strict';}());
+
 angular.module('<%= appname %>').directive('<%= _.camelize(name) %>', function() {
 	return {
 		restrict: 'E',

@@ -1,3 +1,5 @@
+(function () { 'use strict';}());
+
 angular.module('<%= _.camelize(appname) %>', ['ui.bootstrap','ui.utils','<%= routerModuleName %>','ngAnimate']);
 <% if (!uirouter) { %>
 angular.module('<%= _.camelize(appname) %>').config(function($routeProvider) {

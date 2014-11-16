@@ -24,7 +24,7 @@ ModalGenerator.prototype.askFor = function askFor() {
         return;
     }
 
-    cgUtils.askForModuleAndDir('modal',this,true,cb);
+    cgUtils.askForModuleAndDir('modal',this,true,null,cb);
 };
 
 ModalGenerator.prototype.files = function files() {

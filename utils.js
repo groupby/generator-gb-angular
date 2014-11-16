@@ -111,7 +111,7 @@ exports.injectRoute = function(moduleFile,uirouter,name,route,routeUrl,that){
     routeUrl = routeUrl.replace(/\\/g,'/');
 
     if (uirouter){
-        var code = '$stateProvider.state(\''+name+'\', {\n        url: \''+route+'\',\n        templateUrl: \''+routeUrl+'\'\n    });';
+        var code = '$stateProvider.state(\''+name+'\', {\n      url: \''+route+'\',\n      templateUrl: \''+routeUrl+'\'\n    });';
         exports.addToFile(moduleFile,code,exports.STATE_MARKER);
     } else {
         exports.addToFile(moduleFile,'$routeProvider.when(\''+route+'\',{templateUrl: \''+routeUrl+'\'});',exports.ROUTE_MARKER);
@@ -185,7 +185,7 @@ exports.askForModule = function(type,that,cb){
 
 };
 
-exports.askForDir = function(type,that,module,ownDir,cb){
+exports.askForDir = function(type,that,module,ownDir,parentDir,cb){
 
     that.module = module;
     that.appname = module.name;
@@ -198,8 +198,13 @@ exports.askForDir = function(type,that,module,ownDir,cb){
     var defaultDir = path.join(that.dir,configedDir,'/');
     defaultDir = path.relative(process.cwd(),defaultDir);
 
+    if (parentDir && parentDir.length > 0) {
+        defaultDir = path.join(defaultDir,parentDir);
+    }
+
     if (ownDir) {
         defaultDir = path.join(defaultDir,that.name);
+        console.log("defaultDir: " + defaultDir);
     }
 
     defaultDir = path.join(defaultDir,'/');
@@ -265,8 +270,8 @@ exports.askForDir = function(type,that,module,ownDir,cb){
 
 };
 
-exports.askForModuleAndDir = function(type,that,ownDir,cb) {
+exports.askForModuleAndDir = function(type,that,ownDir,parentDir,cb) {
     exports.askForModule(type,that,function(module){
-        exports.askForDir(type,that,module,ownDir,cb);
+        exports.askForDir(type,that,module,ownDir,parentDir,cb);
     });
 };

@@ -1,6 +1,5 @@
-angular.module('<%= appname %>').factory('<%= _.camelize(name) %>',function() {
+(function () { 'use strict';}());
 
-	var <%= _.camelize(name) %> = {};
-
-	return <%= _.camelize(name) %>;
+angular.module('<%= appname %>').service('<%= _.camelize(name) %>',function() {
+  this.<%= _.camelize(name) %> = {};
 });

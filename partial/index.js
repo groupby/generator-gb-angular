@@ -29,14 +29,30 @@ PartialGenerator.prototype.askFor = function askFor() {
 
     var prompts = [
         {
-            name: 'route',
-            message: 'Enter your route url (i.e. /mypartial/:id).  If you don\'t want a route added for you, leave this empty.'
+            name: 'parentRoute',
+            message: 'Enter the parent route for the new route (i.e. /grandparent/parent/).\n' +
+            'For root route, just add \'/\'. If you don\'t want a route added for you, leave this empty.'
         }
     ];
 
     this.prompt(prompts, function (props) {
-        this.route = props.route;
-        cgUtils.askForModuleAndDir('partial',this,true,cb);
+        this.parentRoute = props.parentRoute;
+
+        if (this.parentRoute && this.parentRoute.length > 0) {
+            if (this.parentRoute[0] === '/') {
+                this.parentRoute = this.parentRoute.slice(1);
+            }
+
+            if (this.parentRoute.length > 0 && this.parentRoute[this.parentRoute.length - 1] !== '/') {
+                this.parentRoute = this.parentRoute + '/';
+            }
+
+            if (this.parentRoute.length > 0) {
+                this.state = this.parentRoute.replace('/', '.') + this.name;
+            }
+        }
+
+        cgUtils.askForModuleAndDir('partial',this,true,this.parentRoute,cb);
     }.bind(this));
 };
 
@@ -46,9 +62,10 @@ PartialGenerator.prototype.files = function files() {
 
     cgUtils.processTemplates(this.name,this.dir,'partial',this,null,null,this.module);
 
-    if (this.route && this.route.length > 0){
+    if (this.state && this.state.length > 0){
+        var route = '/' + this.name;
         var partialUrl = this.dir + this.name + '.html';
-        cgUtils.injectRoute(this.module.file,this.config.get('uirouter'),this.name,this.route,partialUrl,this);
+        cgUtils.injectRoute(this.module.file,this.config.get('uirouter'),this.state,route,partialUrl,this);
     }
 
 };
