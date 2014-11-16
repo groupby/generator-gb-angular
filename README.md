@@ -13,6 +13,7 @@ Release History
 * 16/11/2014 - v0.1.1 - Changed partial generator to be smarter about generating nested states.
 
 Features
+-------------
 
 * Provides a directory structure geared towards large Angular projects.
     * Each controller, service, filter, and directive are placed in their own file.
