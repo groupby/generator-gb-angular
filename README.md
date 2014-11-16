@@ -86,7 +86,7 @@ To create a project:
 
     mkdir MyNewAwesomeApp
     cd MyNewAwesomeApp
-    yo cg-angular
+    yo gb-angular
 
 Grunt Tasks
 -------------
@@ -113,12 +113,12 @@ There are generators for `directive`,`partial`,`service`, `filter`, `module`, an
 
 Running a generator:
 
-    yo cg-angular:directive my-awesome-directive
-    yo cg-angular:partial my-partial
-    yo cg-angular:service my-service
-    yo cg-angular:filter my-filter
-    yo cg-angular:module my-module
-    yo cg-angular:modal my-modal
+    yo gb-angular:directive my-awesome-directive
+    yo gb-angular:partial my-partial
+    yo gb-angular:service my-service
+    yo gb-angular:filter my-filter
+    yo gb-angular:module my-module
+    yo gb-angular:modal my-modal
 
 The name paramater passed (i.e. 'my-awesome-directive') will be used as the file names.  The generators will derive appropriate class names from this parameter (ex. 'my-awesome-directive' will convert to a class name of 'MyAwesomeDirective').  Each sub-generator will ask for the folder in which to create the new skeleton files.  You may override the default folder for each sub-generator in the `.yo-rc.json` file.
 
