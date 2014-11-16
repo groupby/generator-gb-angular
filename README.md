@@ -6,6 +6,12 @@ This generator was forked from [generator-cg-angular](https://github.com/cgross/
 
 This generator follows the [Angular Best Practice Guidelines for Project Structure](http://blog.angularjs.org/2014/02/an-angularjs-style-guide-and-best.html).
 
+
+Release History
+-------------
+* 28/10/2014 - v0.0.1 - Forked from cgross/generator-cg-angular
+* 16/11/2014 - v0.1.1 - Changed partial generator to be smarter about generating nested states.
+
 Features
 
 * Provides a directory structure geared towards large Angular projects.
@@ -154,6 +160,3 @@ Importantly, grunt-dom-munger uses CSS attribute selectors to manage the parsing
 * To prevent a script or link tag from being removed from the finalized `index.html`, use a `data-remove="false"` attribute.
 
 
-Release History
--------------
-* 28/10/2014 - v0.0.1 - Forked from cgross/generator-cg-angular
