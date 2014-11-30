@@ -1,4 +1,4 @@
 (function () { 'use strict';}());
 
-angular.module('<%= appname %>').config('<%= _.camelize(name) %>',function() {
+angular.module('<%= appname %>').config(function() {
 });
