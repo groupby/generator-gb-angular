@@ -9,8 +9,10 @@ This generator follows the [Angular Best Practice Guidelines for Project Structu
 
 Release History
 -------------
-* 28/10/2014 - v0.0.1 - Forked from cgross/generator-cg-angular
+* 29/11/2014 - v1.0.0 - Going to start following semver. Requires update to .yo-rc.json. Added config generator, 
+                        fixed routing bug.
 * 16/11/2014 - v0.1.1 - Changed partial generator to be smarter about generating nested states.
+* 28/10/2014 - v0.0.1 - Forked from cgross/generator-cg-angular
 
 Features
 -------------
@@ -22,7 +24,7 @@ Features
    * Build uses [grunt-ngAnnotate](https://github.com/olov/ng-annotate) so you don't have to use the Angular injection syntax for safe minification (i.e. you dont need `$inject` or `(['$scope','$http',...`.
    * `grunt serve` task allows you to run a simple development server with watch/livereload enabled.  Additionally, JSHint and the appropriate unit tests are run for the changed files.
 * Integrates Bower for package management
-* Includes Yeoman subgenerators for directives, services, partials, filters, and modules.
+* Includes Yeoman subgenerators for config, directives, services, partials, filters, and modules.
 * Integrates LESS or Sass, and includes Bootstrap via the source LESS/SCSS files allowing you to reuse Bootstrap vars/mixins/etc.
 * Easily Testable - Each sub-generator creates a skeleton unit test.  Unit tests can be run via `grunt test` and they run automatically during the grunt watch that is active during `grunt serve`.
 
@@ -34,7 +36,7 @@ In this example, the user has chosen to group the app into an `admin` folder, a 
 
 
     app.less ....................... main app-wide styles
-    app.js ......................... angular module initialization and route setup
+    app.js ......................... angular module initialization
     index.html ..................... main HTML file
     Gruntfile.js ................... Grunt build file
     /admin ......................... example admin module folder
@@ -53,6 +55,7 @@ In this example, the user has chosen to group the app into an `admin` folder, a 
         admin-partial.js ........... example partial controller
         admin-partial.less ......... example partial LESS
         admin-partial-spec.js ...... example partial unit test
+    /config ........................ separate files for different module-level config statements
     /search ........................ example search component folder
       my-filter.js ................. example filter
       my-filter-spec.js ............ example filter unit test
@@ -109,10 +112,11 @@ There are a set of subgenerators to initialize empty Angular components.  Each o
 * Update app.less and add the @import as needed.
 * For partials, update the app.js, adding the necessary route call if a route was entered in the generator prompts.
 
-There are generators for `directive`,`partial`,`service`, `filter`, `module`, and `modal`.
+There are generators for `config`,`directive`,`partial`,`service`, `filter`, `module`, and `modal`.
 
 Running a generator:
 
+    yo gb-angular:config my-awesome-module-config
     yo gb-angular:directive my-awesome-directive
     yo gb-angular:partial my-partial
     yo gb-angular:service my-service

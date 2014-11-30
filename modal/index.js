@@ -10,42 +10,42 @@ var path = require('path');
 
 var ModalGenerator = module.exports = function ModalGenerator(args, options, config) {
 
-    yeoman.generators.NamedBase.apply(this, arguments);
+  yeoman.generators.NamedBase.apply(this, arguments);
 
 };
 
 util.inherits(ModalGenerator, yeoman.generators.NamedBase);
 
 ModalGenerator.prototype.askFor = function askFor() {
-    var cb = this.async();
+  var cb = this.async();
 
-    if(_.size(this.config.getAll()) === 0) {
-        console.error("ERROR: config is undefined, check .yo-rc.json");
-        return;
-    }
+  if (_.size(this.config.getAll()) === 0) {
+    this.log.writeln(chalk.red('!!ERROR!!') + " config is undefined, check .yo-rc.json");
+    return;
+  }
 
-    cgUtils.askForModuleAndDir('modal',this,true,null,cb);
+  cgUtils.askForModuleAndDir('modal', this, true, null, cb);
 };
 
 ModalGenerator.prototype.files = function files() {
 
-    this.ctrlname = _.camelize(_.classify(this.name)) + 'Ctrl';
+  this.ctrlname = _.camelize(_.classify(this.name)) + 'Ctrl';
 
-    cgUtils.processTemplates(this.name,this.dir,'modal',this,null,null,this.module);
+  cgUtils.processTemplates(this.name, this.dir, 'modal', this, null, null, this.module);
 
-    setTimeout((function(){
+  setTimeout((function () {
 
-	    console.log('');
-	    console.log('  Open this modal by using ' + chalk.bold('angular-ui-bootstrap') + ' module\'s ' + chalk.bold('$modal') + ' service:');
-	    console.log('');
-	    console.log('  $modal.open({');
-	    console.log('      templateUrl: \'' + path.join(this.dir,this.name + '.html') + '\',');
-	    console.log('      controller: \''+ this.ctrlname +'\'');
-	    console.log('  }).result.then(function(result){');
-	    console.log('      //do something with the result');
-	    console.log('  });');
-	    console.log('');
+    console.log('');
+    console.log('  Open this modal by using ' + chalk.bold('angular-ui-bootstrap') + ' module\'s ' + chalk.bold('$modal') + ' service:');
+    console.log('');
+    console.log('  $modal.open({');
+    console.log('      templateUrl: \'' + path.join(this.dir, this.name + '.html') + '\',');
+    console.log('      controller: \'' + this.ctrlname + '\'');
+    console.log('  }).result.then(function(result){');
+    console.log('      //do something with the result');
+    console.log('  });');
+    console.log('');
 
-    }).bind(this),200);
+  }).bind(this), 200);
 
 };

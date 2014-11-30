@@ -1,18 +1,20 @@
-describe('<%= ctrlname %>', function() {
+describe('<%= ctrlname %>', function () {
 
-	beforeEach(module('<%= appname %>'));
+  beforeEach(module('<%= appname %>'));
 
-	var scope,ctrl;
+  var scope, ctrl, mockService;
 
-    beforeEach(inject(function($rootScope, $controller) {
-      scope = $rootScope.$new();
-      ctrl = $controller('<%= ctrlname %>', {$scope: scope});
-    }));
+  beforeEach(inject(function ($rootScope, $controller, RealService) {
+    scope = $rootScope.$new();
 
-	it('should ...', inject(function() {
+    mockService = RealService;
+    ctrl = $controller('<%= ctrlname %>', {$scope: scope, RealService: mockService});
+  }));
 
-		expect("This controller").toBe("fully tested");
+  it('should ...', inject(function () {
 
-	}));
+    expect("This controller").toBe("fully tested");
+
+  }));
 
 });

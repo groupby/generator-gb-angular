@@ -12,45 +12,48 @@ _.mixin(_.str.exports());
 
 var DirectiveGenerator = module.exports = function DirectiveGenerator(args, options, config) {
 
-    yeoman.generators.NamedBase.apply(this, arguments);
+  yeoman.generators.NamedBase.apply(this, arguments);
 
 };
 
 util.inherits(DirectiveGenerator, yeoman.generators.NamedBase);
 
 DirectiveGenerator.prototype.askFor = function askFor() {
-    var cb = this.async();
+  var cb = this.async();
 
-    if(_.size(this.config.getAll()) === 0) {
-        console.error("ERROR: config is undefined, check .yo-rc.json");
-        return;
+  if (_.size(this.config.getAll()) === 0) {
+    this.log.writeln(chalk.red('!!ERROR!!') + " config is undefined, check .yo-rc.json");
+    return;
+  }
+
+  var prompts = [
+    {
+      type: 'confirm',
+      name: 'needpartial',
+      message: 'Does this directive need an external html file (i.e. partial)?',
+      default: true
     }
+  ];
 
-    var prompts = [{
-        type:'confirm',
-        name: 'needpartial',
-        message: 'Does this directive need an external html file (i.e. partial)?',
-        default: true
-    }];
-
-    this.prompt(prompts, function (props) {
-        this.needpartial = props.needpartial;
-        cgUtils.askForModuleAndDir('directive',this,this.needpartial,null,cb);
-    }.bind(this));
+  this.prompt(prompts, function (props) {
+    this.needpartial = props.needpartial;
+    cgUtils.askForModuleAndDir('directive', this, this.needpartial, null, cb);
+  }.bind(this));
 
 };
 
 DirectiveGenerator.prototype.files = function files() {
 
-    var configName = 'directiveSimpleTemplates';
-    var defaultDir = 'templates/simple';
-    if (this.needpartial) {
-        configName = 'directiveComplexTemplates';
-        defaultDir = 'templates/complex';
-    }
+  var configName = 'directiveSimpleTemplates';
+  var defaultDir = 'templates/simple';
+  if (this.needpartial) {
+    configName = 'directiveComplexTemplates';
+    defaultDir = 'templates/complex';
+  }
 
-    this.htmlPath = path.join(this.dir,this.name + '.html').replace(/\\/g,'/');;
+  this.htmlPath = path.join(this.dir, this.name + '.html').replace(/\\/g, '/');
+  ;
 
-    cgUtils.processTemplates(this.name,this.dir,'directive',this,defaultDir,configName,this.module);
+  cgUtils.processTemplates(this.name, this.dir, 'directive', this, defaultDir, configName, this.module);
 
 };

@@ -12,25 +12,25 @@ _.mixin(_.str.exports());
 
 var ServiceGenerator = module.exports = function ServiceGenerator(args, options, config) {
 
-    yeoman.generators.NamedBase.apply(this, arguments);
+  yeoman.generators.NamedBase.apply(this, arguments);
 
 };
 
 util.inherits(ServiceGenerator, yeoman.generators.NamedBase);
 
 ServiceGenerator.prototype.askFor = function askFor() {
-    var cb = this.async();
+  var cb = this.async();
 
-    if(_.size(this.config.getAll()) === 0) {
-        console.error("ERROR: config is undefined, check .yo-rc.json");
-        return;
-    }
+  if (_.size(this.config.getAll()) === 0) {
+    this.log.writeln(chalk.red('!!ERROR!!') + " config is undefined, check .yo-rc.json");
+    return;
+  }
 
-    cgUtils.askForModuleAndDir('service',this,false,null,cb);
+  cgUtils.askForModuleAndDir('service', this, false, null, cb);
 };
 
 ServiceGenerator.prototype.files = function files() {
 
-    cgUtils.processTemplates(this.name,this.dir,'service',this,null,null,this.module);
+  cgUtils.processTemplates(this.name, this.dir, 'service', this, null, null, this.module);
 
 };
