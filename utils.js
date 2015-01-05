@@ -34,7 +34,7 @@ exports.addToFile = function (filename, lineToAdd, beforeMarker) {
   }
 };
 
-exports.processTemplates = function (name, dir, type, that, defaultDir, configName, module) {
+exports.processTemplates = function (name, dir, type, that, defaultDir, configName, module, omitFromIndex) {
 
   if (!defaultDir) {
     defaultDir = 'templates'
@@ -73,7 +73,10 @@ exports.processTemplates = function (name, dir, type, that, defaultDir, configNa
       //create the file
       that.template(templateFile, path.join(dir, customTemplateName));
       //inject the file reference into index.html/app.less/etc as appropriate
-      exports.inject(path.join(dir, customTemplateName), that, module);
+
+      if (!omitFromIndex) {
+        exports.inject(path.join(dir, customTemplateName), that, module);
+      }
     });
 };
 

@@ -6,10 +6,9 @@
     "newcap": true,
     "noarg": true,
     "sub": true,
-    "strict": true,
     "latedef": true,
     "forin": true,
-    "bitwise": true,
+    "bitwise": false,
     "undef": true,
     "eqnull": true,
     "browser": true,
@@ -29,7 +28,10 @@
         "expect": true,
         "xdescribe": true,
         "xit": true,
-        "runs" : true,
-        "spyOn": true
+        "runs": true,
+        "spyOn": true,
+        "element": true,
+        "by": true,
+        "browser": true
     }
 }

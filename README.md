@@ -11,6 +11,7 @@ This generator follows the [Angular Best Practice Guidelines for Project Structu
 
 Release History
 -------------
+* 05/01/2015 - v1.1.0 - Switched to using 
 * 29/11/2014 - v1.0.0 - Going to start following semver. Requires update to .yo-rc.json. Added config generator, 
                         fixed routing bug.
 * 16/11/2014 - v0.1.1 - Changed partial generator to be smarter about generating nested states.

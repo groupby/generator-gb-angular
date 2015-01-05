@@ -13,6 +13,7 @@ var CgangularGenerator = module.exports = function CgangularGenerator(args, opti
     this.config.set('filterDirectory', 'filter/');
     this.config.set('serviceDirectory', 'service/');
     this.config.set('configDirectory', 'config/');
+    this.config.set('gruntDirectory', 'grunt/');
     var inject = {
       js: {
         file: 'index.html',
