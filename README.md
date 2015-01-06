@@ -11,7 +11,7 @@ This generator follows the [Angular Best Practice Guidelines for Project Structu
 
 Release History
 -------------
-* 05/01/2015 - v1.1.0 - Switched to using 
+* 05/01/2015 - v1.1.0 - Switched to using `load-grunt-config` and dedicated `grunt/` folder for grunt task definition
 * 29/11/2014 - v1.0.0 - Going to start following semver. Requires update to .yo-rc.json. Added config generator, 
                         fixed routing bug.
 * 16/11/2014 - v0.1.1 - Changed partial generator to be smarter about generating nested states.
@@ -59,14 +59,7 @@ In this example, the user has chosen to group the app into an `admin` folder, a 
         admin-partial.less ......... example partial LESS
         admin-partial-spec.js ...... example partial unit test
     /config ........................ separate files for different module-level config statements
-    /search ........................ example search component folder
-      my-filter.js ................. example filter
-      my-filter-spec.js ............ example filter unit test
-      /search-partial .............. example partial
-        search-partial.html ........ example partial html
-        search-partial.js .......... example partial controller
-        search-partial.less ........ example partial LESS
-        search-partial-spec.js ..... example partial unit test
+    /grunt ......................... folder for grunt tasks
     /service ....................... angular services folder
         my-service.js .............. example service
         my-service-spec.js ......... example service unit test
@@ -115,11 +108,12 @@ There are a set of subgenerators to initialize empty Angular components.  Each o
 * Update app.less and add the @import as needed.
 * For partials, update the app.js, adding the necessary route call if a route was entered in the generator prompts.
 
-There are generators for `config`,`directive`,`partial`,`service`, `filter`, `module`, and `modal`.
+There are generators for `grunt-config`, `config`,`directive`,`partial`,`service`, `filter`, `module`, and `modal`.
 
 Running a generator:
 
     yo gb-angular:config my-awesome-module-config
+    yo gb-angular:grunt-config my-sweet-grunt-task
     yo gb-angular:directive my-awesome-directive
     yo gb-angular:partial my-partial
     yo gb-angular:service my-service
