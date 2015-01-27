@@ -1,7 +1,5 @@
 #generator-gb-angular
 
-[![Build Status](https://travis-ci.org/groupby/generator-gb-angular.png)](https://travis-ci.org/groupby/generator-gb-angular)
-
 >Yeoman Generator for Enterprise Angular Projects
 
 This generator was forked from [generator-cg-angular](https://github.com/cgross/generator-cg-angular) `v3.1.2`, with branch `v3.2` merged into `master` on Oct 28, 2014.
@@ -11,6 +9,7 @@ This generator follows the [Angular Best Practice Guidelines for Project Structu
 
 Release History
 -------------
+- 27/01/2015 - v1.4.0 - Added JSON mocks to services, fixed bug
 * 05/01/2015 - v1.1.0 - Switched to using `load-grunt-config` and dedicated `grunt/` folder for grunt task definition
 * 29/11/2014 - v1.0.0 - Going to start following semver. Requires update to .yo-rc.json. Added config generator, 
                         fixed routing bug.
