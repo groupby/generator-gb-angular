@@ -1,5 +1,7 @@
 #generator-gb-angular
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/groupby/generator-gb-angular.svg)](https://greenkeeper.io/)
+
 >Yeoman Generator for Enterprise Angular Projects
 
 This generator was forked from [generator-cg-angular](https://github.com/cgross/generator-cg-angular) `v3.1.2`, with branch `v3.2` merged into `master` on Oct 28, 2014.
